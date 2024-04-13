@@ -24,5 +24,5 @@ app.get('/api/react', (req, res) => {
         });
 });
 
-const port = Math.floor(Math.random() * (6000 - 3000 + 1)) + 3000;
-app.listen(port, () => { console.log(`Live | ${port}`); });
+// const port = Math.floor(Math.random() * (6000 - 3000 + 1)) + 3000;
+app.listen(3000, () => { console.log('Live'); });
