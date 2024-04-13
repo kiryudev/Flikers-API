@@ -6,5 +6,4 @@ CARE
 WOW
 SAD
 ANGRY
-
 ```
