@@ -2,9 +2,9 @@ const express = require('express');
 const axios = require('axios');
 const app = express();
 
-app.get('/api/react', (req, res) => {
+app.get('/api/react', async (req, res) => {
     const { link, type, cookie } = req.query;
-    axios.post("https://flikers.net/android/android_get_react.php", {
+    await axios.post("https://flikers.net/android/android_get_react.php", {
         post_id: link,
         react_type: type,
         version: "v1.7"
@@ -19,10 +19,9 @@ app.get('/api/react', (req, res) => {
     })
         .then(dat => { res.json(dat.data); })
         .catch(e => {
-            console.error(e);
-            res.json({ error: 'an error occurred' });
+            res.json({ error: e });
         });
 });
 
 // const port = Math.floor(Math.random() * (6000 - 3000 + 1)) + 3000;
-app.listen(3000, () => { console.log('Live'); });
+app.listen(process.env.PORT, () => { console.log('Live'); });
